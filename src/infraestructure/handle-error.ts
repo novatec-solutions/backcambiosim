@@ -1,4 +1,5 @@
 import { HttpStatus } from '@nestjs/common';
+import { ResponseCodeMessage } from './enum/response-code.enum';
 
 export class HandleError {
   httpCodesError = [
@@ -15,8 +16,11 @@ export class HandleError {
     } 
 
     return {
-      error: 0,
-      response: data,
+      error: data.code == '0' ? 0 : 1,
+      response:
+        data.code == '0'
+          ? data
+          : { description: ResponseCodeMessage[data.code] }
     };
   }
 
