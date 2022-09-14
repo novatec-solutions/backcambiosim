@@ -14,11 +14,11 @@ export class PinRepository extends HandleError {
         url: `${ID_CLARO_URL}GeneratePin`,
         data: generatePinRequest(body),
       });
-      return this.processErrorRes(data);
+      return this.validatePinResponse(data);
     } catch (error) {
       return {
         error: 1,
-        response: { description: 'Ha ocurrido un error' },
+        response: { description: `Ha ocurrido un error` },
       }
     }  
   }
@@ -30,11 +30,11 @@ export class PinRepository extends HandleError {
         url: `${ID_CLARO_URL}Validate`,
         data: validatePinRequest(body),
       });
-      return this.processErrorRes(data);
+      return this.validatePinResponse(data);
     } catch (error) {
       return {
         error: 1,
-        response: { description: 'Ha ocurrido un error' },
+        response: { description: `Ha ocurrido un error` },
       }
     }
   }

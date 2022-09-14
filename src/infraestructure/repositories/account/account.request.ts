@@ -10,14 +10,14 @@ export const validateAccountRequest = (param) => ({
     traceabilityId: 'string',
   },
   documentClient: param.documentClient,
-  user: 'ECM8790L',
   channelTypeCode: '1',
   triedNumber: '1',
-  Company: 'CLARO',
-  Application: 'CAMBIO_SIM',
-  accessKey: '27307e34b160a02bed9481455012d281f2fd153e',
-  trace: true,
   accountType: 'N/A',
+  user: 'ECM8790L',
+  company: 'CLARO',
+  application: 'CAMBIO_SIM',
+  accessKey: '732956381a87a9227ce125e8730872fd3488e784',
+  trace: true,
 });
 
 export const migrateSimRequest = (param) => ({

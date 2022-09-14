@@ -12,7 +12,10 @@ export const generatePinRequest = (param) => ({
   documentClient: param.documentClient,
   contactData: param.contactData,
   contactType: param.contactType,
-  user: 'ECM8790L',
+  user: 'ECM1212',
+  company: 'CLARO',
+  application: 'CAMBIO_SIM',
+  accessKey: '732956381a87a9227ce125e8730872fd3488e784',
 });
 
 export const validatePinRequest = (param) => ({
@@ -27,7 +30,11 @@ export const validatePinRequest = (param) => ({
     traceabilityId: 'string',
   },
   documentClient: param.documentClient,
-  user: 'ECM8790L',
   method: 'PIN',
   pinNumber: param.pinNumber,
+  user: 'ECM1212',
+  company: 'CLARO',
+  application: 'CAMBIO_SIM',
+  accessKey: '732956381a87a9227ce125e8730872fd3488e784',
+  trace: true
 });
