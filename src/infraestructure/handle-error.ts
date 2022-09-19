@@ -8,24 +8,24 @@ export class HandleError {
     HttpStatus.FORBIDDEN,
     HttpStatus.NOT_FOUND,
     HttpStatus.INTERNAL_SERVER_ERROR,
-    HttpStatus.SERVICE_UNAVAILABLE
+    HttpStatus.SERVICE_UNAVAILABLE,
   ];
 
   processError(data) {
     if (this.httpCodesError.includes(data.statusCode)) {
       return this.errorResponse();
-    } 
+    }
 
     return {
       error: data.code == '0' ? 0 : 1,
       response:
         data.code == '0'
           ? data
-          : { description: ResponseCodeMessage[data.code] }
+          : { description: ResponseCodeMessage[data.code] },
     };
   }
 
-  validateContactsResponse(data){
+  validateContactsResponse(data) {
     const [response] = data?.pinGeneratorResponse;
     const contact_array = [];
 
@@ -33,7 +33,7 @@ export class HandleError {
       data?.telephoneNumbers?.map((elem) => {
         contact_array.push({ type: TypeContacts.PHONE, contact: elem });
       });
-  
+
       data?.emails?.map((elem) => {
         contact_array.push({ type: TypeContacts.MAIL, contact: elem });
       });
@@ -56,14 +56,17 @@ export class HandleError {
     return res;
   }
 
-  validatePinResponse(data: any){
+  validatePinResponse(data: any) {
     if (data.pinGeneratorResponse) {
       const [response] = data.pinGeneratorResponse;
       return {
         error: response.isValid == 'true' ? 0 : 1,
-        response: { 
-          description: MsgValidatePin[response.message]
-        }
+        response: {
+          description:
+            response.isValid == 'true'
+              ? 'Pin Generado satisfactoriamente'
+              : MsgValidatePin[response.message],
+        },
       };
     }
 
@@ -72,10 +75,10 @@ export class HandleError {
     }
   }
 
-  errorResponse(){
+  errorResponse() {
     return {
       error: 1,
       response: { description: 'Ha ocurrido un error' },
-    }
+    };
   }
 }

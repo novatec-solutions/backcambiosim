@@ -17,7 +17,7 @@ export class AuthRepository extends HandleError{
     } catch (error) {
       return {
         error: 1,
-        response: { description: 'Ha ocurrido un error' },
+        response: { description: `Ha ocurrido un error. ${error}` },
       }
     }
   }
@@ -33,7 +33,7 @@ export class AuthRepository extends HandleError{
     } catch (error) {
       return {
         error: 1,
-        response: { description: 'Ha ocurrido un error' },
+        response: { description: `Ha ocurrido un error. ${error}` },
       }
     }
   }
@@ -49,7 +49,7 @@ export class AuthRepository extends HandleError{
     } catch (error) {
       return {
         error: 1,
-        response: { description: 'Ha ocurrido un error' },
+        response: { description: `Ha ocurrido un error. ${error}` },
       }
     }
   }
