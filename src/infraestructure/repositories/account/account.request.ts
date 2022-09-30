@@ -21,8 +21,8 @@ export const validateAccountRequest = (param) => ({
 });
 
 export const migrateSimRequest = (param) => ({
-  min: param.min_b,
-  min_b: param.min,
+  min: param.min,
+  min_b: param.min_b,
   iccidNew: param.iccidNew,
   codeDesactivation: '381',
   codeChangeIccid: 9,
