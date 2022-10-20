@@ -12,7 +12,7 @@ export const validateAccountRequest = (param) => ({
   documentClient: param.documentClient,
   channelTypeCode: '1',
   triedNumber: '1',
-  accountType: 'N/A',
+  accountType: 'HOG',
   user: 'ECM8790L',
   company: 'CLARO',
   application: 'CAMBIO_SIM',
