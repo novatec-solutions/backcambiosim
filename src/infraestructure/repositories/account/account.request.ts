@@ -10,11 +10,21 @@ export const validateAccountRequest = (param) => ({
     traceabilityId: 'string',
   },
   documentClient: param.documentClient,
-  phoneNumber: '233555555',
-  emailAddress: 'test@test.com',
-  user: 'ECM8790L',
   channelTypeCode: '1',
   triedNumber: '1',
+  accountType: 'HOG',
+  user: 'ECM8790L',
+  company: 'CLARO',
+  application: 'CAMBIO_SIM',
+  accessKey: '732956381a87a9227ce125e8730872fd3488e784',
   trace: true,
-  accountType: 'N/A',
+});
+
+export const migrateSimRequest = (param) => ({
+  min: param.min,
+  min_b: param.min_b,
+  iccidNew: param.iccidNew,
+  codeDesactivation: '381',
+  codeChangeIccid: 9,
+  descriptionChangeIccid: 'Repo Voluntaria (Sin Costo)',
 });
