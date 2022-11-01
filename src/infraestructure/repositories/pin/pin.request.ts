@@ -30,7 +30,7 @@ export const validatePinRequest = (param) => ({
     traceabilityId: 'string',
   },
   documentClient: param.documentClient,
-  method: 'PIN',
+  method: param.method,
   pinNumber: param.pinNumber,
   user: 'ECM1212',
   company: 'CLARO',

@@ -42,17 +42,13 @@ export class HandleError {
     contact_array.push({ type: '4', contact: '3108012045' }); //Data para pruebas
 
     const res = {
-      error: 0,
-      response: contact_array,
+      error: response.isValid === 'true' ? 0 : 1,
+      method: data?.method,
+      response:
+        response.isValid === 'true'
+          ? contact_array
+          : { description: response?.message },
     };
-
-    // const res = {
-    //   error: response.isValid === 'true' ? 0 : 1,
-    //   response:
-    //     response.isValid === 'true'
-    //       ? contact_array
-    //       : { description: response?.message },
-    // };
     return res;
   }
 
