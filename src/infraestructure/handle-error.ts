@@ -26,34 +26,43 @@ export class HandleError {
   }
 
   validateContactsResponse(data) {
-    const [response] = data?.pinGeneratorResponse;
-    const contact_array = [];
+    if (data?.pinGeneratorResponse) {
+      const [response] = data.pinGeneratorResponse;
+      const contact_array = [];
 
-    if (response.isValid === 'true') {
-      data?.telephoneNumbers?.map((elem) => {
-        contact_array.push({ type: TypeContacts.PHONE, contact: elem });
-      });
+      if (response?.isValid === 'true') {
+        data?.telephoneNumbers?.map((elem) => {
+          contact_array.push({ type: TypeContacts.PHONE, contact: elem });
+        });
 
-      data?.emails?.map((elem) => {
-        contact_array.push({ type: TypeContacts.MAIL, contact: elem });
-      });
+        data?.emails?.map((elem) => {
+          contact_array.push({ type: TypeContacts.MAIL, contact: elem });
+        });
+      }
+
+      contact_array.push({ type: '4', contact: '3102383099' }); //Data para pruebas
+      contact_array.push({ type: '4', contact: '3108012045' }); //Data para pruebas
+
+      return {
+        error: response.isValid === 'true' ? 0 : 1,
+        method: data?.method,
+        response:
+          response.isValid === 'true'
+            ? contact_array
+            : { description: response?.message },
+      }
     }
-    contact_array.push({ type: '4', contact: '3102383099' }); //Data para pruebas
-    contact_array.push({ type: '4', contact: '3108012045' }); //Data para pruebas
 
-    const res = {
-      error: response.isValid === 'true' ? 0 : 1,
-      method: data?.method,
-      response:
-        response.isValid === 'true'
-          ? contact_array
-          : { description: response?.message },
-    };
-    return res;
+    if (data?.response[0].result === 'ERROR') {
+      return {
+        error: 1,
+        response: { description: data.response[0].description }
+      }
+    }
   }
 
   validatePinResponse(data: any) {
-    if (data.pinGeneratorResponse) {
+    if (data?.pinGeneratorResponse) {
       const [response] = data.pinGeneratorResponse;
       return {
         error: response.isValid == 'true' ? 0 : 1,
@@ -66,8 +75,11 @@ export class HandleError {
       };
     }
 
-    if (data.response.result == 'ERROR') {
-      return this.errorResponse();
+    if (data?.response[0].result == 'ERROR') {
+      return {
+        error: 1,
+        response: { description: data.response[0].description }
+      }
     }
   }
 
