@@ -37,7 +37,7 @@ export const ResponseCodeMessage = {
   [ResponseCode.DATABASE_QUERY]: 'No se pudo consultar la información, por favor inténtelo más tarde',
   [ResponseCode.ICCID_INCORRECT]: 'El número de sim card ingresado no es correcto. Por favor valide e inténtelo de nuevo',
   [ResponseCode.BIOGRAPHICAL_MODIFICATION]: 'La cuenta tuvo cambios demográficos en el último tiempo, para mayor información comuníquese con nuestros asesores en el *611',
-  [ResponseCode.POSTPAGO_LINE]: 'La línea consultada es Postpago',
+  [ResponseCode.POSTPAGO_LINE]: 'La linea consultada es postpago y esta legalizada',
   [ResponseCode.PORTABILITY_PROCESS]: 'La línea se encuentra en proceso de portabilidad, para mayor información comuníquese con nuestros asesores en el *611',
   [ResponseCode.ERR_VALIDATE_USER_BSCS]: 'No se encontraron registros de los datos ingresados,  para mayor información comuníquese con nuestros asesores en el *611',
   [ResponseCode.MIN_HAS_CHANGES]: 'La cuenta tuvo cambios demográficos en el último tiempo, para mayor información comuníquese con nuestros asesores en el *611',

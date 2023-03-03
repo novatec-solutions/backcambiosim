@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import Axios from 'axios';
-import { SIM_MIGRATION_URL } from 'src/constants';
+import { SIM_PLAN_URL, SIM_MIGRATION_URL } from 'src/constants';
 import { RequestMethod } from 'src/infraestructure/enum/request-method.enum';
 import { HandleError } from 'src/infraestructure/handle-error';
 
@@ -42,7 +42,7 @@ export class AuthRepository extends HandleError{
     try{
       const { data } = await Axios({
         method: RequestMethod.POST,
-        url: `${SIM_MIGRATION_URL}validatePlanSIMResource`,
+        url: `${SIM_PLAN_URL}validatePlanSIMResource`,
         data: body,
       });
       return this.processError(data);
