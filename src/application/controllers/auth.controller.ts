@@ -10,11 +10,6 @@ export class AuthController {
     return await this.authService.evaluateInformation(body);
   }
 
-  @Post('linea')
-  async evaluateLine(@Body() body) {
-    return await this.authService.evaluateLine(body);
-  }
-
   @Post('plan')
   async evaluatePlan(@Body() body) {
     return await this.authService.evaluatePlan(body);

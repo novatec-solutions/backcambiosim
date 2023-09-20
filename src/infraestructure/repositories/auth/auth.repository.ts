@@ -22,22 +22,6 @@ export class AuthRepository extends HandleError{
     }
   }
 
-  async evaluateLine(body) {
-    try{
-      const { data } = await Axios({
-        method: RequestMethod.GET,
-        url: `${SIM_MIGRATION_URL}getCustomerInfoSIMResource`,
-        params: body,
-      });
-      return this.processError(data);
-    } catch (error) {
-      return {
-        error: 1,
-        response: { description: `Ha ocurrido un error. ${error}` },
-      }
-    }
-  }
-
   async evaluatePlan(body) {
     try{
       const { data } = await Axios({

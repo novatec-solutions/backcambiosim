@@ -33,7 +33,7 @@ export enum ResponseCode{
 }
 
 export const ResponseCodeMessage = {
-  [ResponseCode.LINE_NOT_ACTIVE]: 'La línea ingresada no se encuentra activada',
+  [ResponseCode.LINE_NOT_ACTIVE]: 'Escenario no cumple con las condiciones',
   [ResponseCode.DATABASE_QUERY]: 'No se pudo consultar la información, por favor inténtelo más tarde',
   [ResponseCode.ICCID_INCORRECT]: 'El número de sim card ingresado no es correcto. Por favor valide e inténtelo de nuevo',
   [ResponseCode.BIOGRAPHICAL_MODIFICATION]: 'La cuenta tuvo cambios demográficos en el último tiempo, para mayor información comuníquese con nuestros asesores en el *611',

@@ -40,9 +40,6 @@ export class HandleError {
         });
       }
 
-      contact_array.push({ type: '4', contact: '3102383099' }); //Data para pruebas
-      contact_array.push({ type: '4', contact: '3108012045' }); //Data para pruebas
-
       return {
         error: response.isValid === 'true' ? 0 : 1,
         method: data?.method,
